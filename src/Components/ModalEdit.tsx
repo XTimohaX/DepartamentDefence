@@ -85,9 +85,12 @@ const ModalWindEdit: FC<IPostAccount> = ({oldPost}) => {
                             <h3 className="inpName">Date</h3>
                             <div className="date">
 
-                                <DatePicker selected={post.myDate} onChange={(selectedDate)=>setPost({...post,myDate:selectedDate} )}
-                                            showYearDropdown
-                                />
+                                {post.myDate && (
+                                    <DatePicker selected={new Date(post.myDate)} onChange={(selectedDate)=>setPost({...post,myDate:selectedDate} )}
+                                                showYearDropdown
+                                    />
+                                )}
+
                                 <img className="cal"
                                      src={calendar}
                                      alt=""/>
